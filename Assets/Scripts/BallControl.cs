@@ -166,10 +166,7 @@ public class BallControl : MonoBehaviour
             case BallState.FallingBall:
                 break;
             case BallState.RollBall:
-                if (collision.gameObject.tag == Constants.Tag.Boss)
-                {
-                    Destroy(this.gameObject);
-                }
+                
                 if (collision.gameObject.tag == Constants.Tag.GhostWall)
                 {
                     Debug.Log($"撞到南墙，反转 {this.moveDir}=> {-this.moveDir} ");
@@ -205,6 +202,11 @@ public class BallControl : MonoBehaviour
             {
                 this.moveDir = -this.moveDir;
             }
+        }
+        
+        if(currentState == BallState.RollBall && collision.gameObject.tag == Constants.Tag.Boss)
+        {
+            Destroy(this.gameObject);
         }
     }
 

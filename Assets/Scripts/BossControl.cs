@@ -155,11 +155,17 @@ public class BossControl : MonoBehaviour
             this.gameObject.layer = LayerMask.NameToLayer("Boss");
             this.animator.SetBool("IsGround", true);
         }
+        
+
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
         //被雪球撞到
-        if(collision.gameObject.tag == Constants.Tag.RollBall)
+        if (collision.gameObject.tag == Constants.Tag.RollBall)
         {
             Debug.Log("Boss血量-200");
-            this.hp-=200;
+            this.hp -= 200;
             if (this.hp <= 0)
             {
                 this.hp = 0;
@@ -173,8 +179,8 @@ public class BossControl : MonoBehaviour
                 renderInvincible.open();
                 Invoke("closeRender", 1f);
             }
+            Destroy(collision.gameObject);
         }
-
     }
 
     private void closeRender()
