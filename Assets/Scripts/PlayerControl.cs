@@ -122,7 +122,7 @@ public class PlayerControl : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && this.animator.GetBool("IsGround"))
+        if ((Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.Space)) && this.animator.GetBool("IsGround"))
         {
             //跳跃
             rigidbody2D.AddForce(Vector2.up * 300f);

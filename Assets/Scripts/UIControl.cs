@@ -41,7 +41,7 @@ public class UIControl : MonoBehaviour
 
     public void drawBossHp(int hp,int maxHp)
     {
-        this.BossText.text = $"Boss: {hp}/{maxHp}";
+        this.BossText.text = $"{hp}/{maxHp}";
 
     }
 
